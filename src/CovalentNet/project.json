@@ -1,6 +1,5 @@
 ﻿{
   "dependencies": {
-    "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.1",
     "Microsoft.AspNetCore.Routing": "1.0.1",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
@@ -11,7 +10,8 @@
     "Microsoft.Extensions.Logging": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
-    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0"
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0"
   },
 
   "tools": {
@@ -28,6 +28,7 @@
   },
 
   "publishOptions": {
+    "exclude": [ "node_modules", "dist" ],
     "include": [
       "wwwroot",
       "**/*.cshtml",
@@ -37,6 +38,7 @@
   },
 
   "scripts": {
+    "prepack": "ng build",
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }
