@@ -2,18 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CovalentNet.Data;
+using CovalentNet.Data.Entities;
+using CovalentNet.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CovalentNet.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly IOrderRepository _orderRepository;
+        public ValuesController(IOrderRepository orderRepository )
+        {
+            _orderRepository = orderRepository;
+            
+        }
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<Order>> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return await _orderRepository.GetAllAsync();
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            return new List<Order>();
         }
 
         // GET api/values/5

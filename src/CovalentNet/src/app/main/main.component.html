@@ -1,8 +1,14 @@
-<td-layout #layout logo="assets:covalent" sidenavTitle="Quickstart" displayName="Firstname Lastname" (logout)="logout()">
+<td-layout #layout sidenavTitle="Sidenav Title" logo="svgIconName">
   <md-nav-list menu-items>
-    <template let-item let-last="last" ngFor [ngForOf]="routes">
-      <a md-list-item [routerLink]="[item.route]" (click)="layout.close()"><md-icon>{{item.icon}}</md-icon>{{item.title}}</a>
-    </template>
+    <a *ngFor="let item of routes" md-list-item [routerLink]="[item.route]" (click)="layout.close()">
+      <md-icon>{{item.icon}}</md-icon>
+      {{item.title}}
+    </a>
   </md-nav-list>
-  <router-outlet></router-outlet>
+  <td-layout-nav toolbarTitle="ASP Covalent App" logo="svgIconName">
+    <router-outlet></router-outlet>
+    <td-layout-footer>
+      Optional footer
+    </td-layout-footer>
+  </td-layout-nav>
 </td-layout>
