@@ -22,7 +22,7 @@ namespace CovalentNet.Data
         }
 
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
+       // public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Order_Detail> Order_Details { get; set; }
@@ -35,11 +35,11 @@ namespace CovalentNet.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CustomerDemographic>()
-                .Property(e => e.CustomerTypeID);
+        //    modelBuilder.Entity<CustomerDemographic>()
+        //        .Property(e => e.CustomerTypeID);
 
-            modelBuilder.Entity<CustomerDemographic>()
-                .HasMany(e => e.Customers);
+        //    modelBuilder.Entity<CustomerDemographic>()
+        //        .HasMany(e => e.Customers);
             //    .WithMany(e => e.CustomerDemographics)
             //    .Map(m => m.ToTable("CustomerCustomerDemo").MapLeftKey("CustomerTypeID").MapRightKey("CustomerID"));
 
@@ -111,8 +111,7 @@ namespace CovalentNet.Data
                         e.ProductID
                     });
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(e => e.CustomerDemographics);
+            
         }
     }
 }

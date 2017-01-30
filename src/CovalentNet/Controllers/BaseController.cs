@@ -7,10 +7,10 @@ using System.Linq;
 
 namespace CovalentNet.Controllers
 {
-    public abstract class BaseController<T> : Controller where T : class, IEntityBase<int>
+    public abstract class BaseController<T,TR> : Controller where T : class, IEntityBase<TR>
     {
-        private readonly IEntityBaseRepository<T, int> _repository;
-        protected BaseController(IEntityBaseRepository<T, int> repository)
+        private readonly IEntityBaseRepository<T, TR> _repository;
+        protected BaseController(IEntityBaseRepository<T, TR> repository)
         {
             this._repository = repository;
         }

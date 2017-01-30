@@ -57,6 +57,6 @@ namespace CovalentNet.Data.Entities
         public virtual ICollection<Order> Orders { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerDemographic> CustomerDemographics { get; set; }
+       // public virtual ICollection<CustomerDemographic> CustomerDemographics { get; set; }
     }
 }

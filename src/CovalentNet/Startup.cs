@@ -44,9 +44,14 @@ namespace CovalentNet
 
             services.AddScoped(typeof(EntityBaseRepository<,>), typeof(EntityBaseRepository<,>));
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddMvc();
+            services.AddCors(
+                options=>options.AddPolicy("local",
+                builder=>builder.WithOrigins("http://localhost:4200")
+                )
+            );
 
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline

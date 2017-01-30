@@ -1,0 +1,22 @@
+<md-card>
+
+            <md-card-title>Customers </md-card-title>
+            <md-card-subtitle>Customers List</md-card-subtitle>
+            <md-divider>
+
+          <table td-data-table>
+           
+            <th td-data-table-column
+                *ngFor="let column of columns"
+                [numeric]="column.numeric">
+              {{column.label}}
+            </th>
+            <tr td-data-table-row *ngFor="let row of customers">
+              <td td-data-table-cell *ngFor="let column of columns" [numeric]="column.numeric">
+                {{column.format ? column.format(row[column.name]) : row[column.name]}}
+              </td>
+            </tr>
+          </table>
+            </md-divider>
+            
+</md-card>

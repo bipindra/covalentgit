@@ -33,6 +33,8 @@ import { RequestInterceptor } from '../config/interceptors/request.interceptor';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { HomeComponent } from './home/home.component';
+import { OrdersComponent } from './orders/';
+import { CustomersComponent } from './customers/';
 
 const httpInterceptorProviders: Type<IHttpInterceptor>[] = [
   RequestInterceptor,
@@ -60,6 +62,8 @@ const httpInterceptorProviders: Type<IHttpInterceptor>[] = [
     EmailTemplateComponent,
     EditorTemplateComponent,
     HomeComponent,
+    OrdersComponent,
+    CustomersComponent,
   ], // directives, components, and pipes owned by this NgModule
   imports: [
     BrowserModule,

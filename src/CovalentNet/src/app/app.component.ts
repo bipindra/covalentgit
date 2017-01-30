@@ -17,7 +17,7 @@ export class AppComponent {
               viewContainerRef: ViewContainerRef) {
     let options: ILoadingOptions = {
       name: 'main',
-      type: LoadingType.Circular,
+      type: LoadingType.Linear,
     };
     this._loadingService.createOverlayComponent(options, viewContainerRef);
     this._iconRegistry.addSvgIconInNamespace('assets', 'teradata',

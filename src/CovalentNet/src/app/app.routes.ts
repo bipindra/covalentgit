@@ -18,12 +18,17 @@ import { DashboardTemplateComponent } from './templates/dashboard/dashboard.comp
 import { EmailTemplateComponent } from './templates/email/email.component';
 import { EditorTemplateComponent } from './templates/editor/editor.component';
 import { HomeComponent} from './home/home.component';
+import {OrdersComponent} from './orders/';
+import {CustomersComponent} from './customers';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', component: MainComponent, children: [{
       component: HomeComponent,
       path: '',
     },
+
+    {path:'orders',component:OrdersComponent},
+    {path:'customers',component:CustomersComponent}
     // {path: 'product', component: DashboardProductComponent, children: [
     //   {path: '', component: ProductOverviewComponent},
     //   {path: 'stats', component: ProductStatsComponent},
